@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>Profil Desa Balong</title>
+	<link href="https://fonts.googleapis.com/css?family=Cardo|Ubuntu+Condensed&display=swap" rel="stylesheet"> 
+	<style type="text/css">
+
+		*, *:after, *:before {
+			-webkit-box-sizing:border-box;
+			-moz-box-sizing:border-box;
+			box-sizing:border-box;
+		}
+		html, body {
+			font-family: 'Arial','sans-serif';
+			font-size: 1rem;
+			background-color: #efefef;
+			margin:0;
+			padding: 0;
+			font-size: 1rem;
+			line-height: 1.5;
+			color:#424242;
+		}
+		.container {
+			width: 100%;
+			float: left;
+			margin-bottom: 20px;
+		}
+		.container:after,
+		.container:before {
+			content: " ";
+			clear: both;
+		}
+		.container .left, .container .right {
+			float: left;
+		}
+		.container .left {
+			max-width: calc(100% - 400px);
+			width: 100%;
+			padding: 0 15px;
+		}
+		.konten {
+			width: 100%;
+			background-color: #fff;
+			padding: 15px 20px;
+			display: none;
+		}
+		.konten:target {
+			display: block;
+		}
+		.container .right {
+			max-width: 400px;
+			width: 400px;
+			padding: 15px;
+		}
+		.container .right:after {
+			content: " ";
+			clear: both;
+		}
+		#menu {
+			display: none;
+		}
+		.bar {
+			width: 30px;
+			height: 5px;
+			background-color: #333;
+			border-radius: 7px;
+			margin-bottom: 4px;
+		}
+
+		#header {
+			background-color: #efefef;
+			position: relative;
+		}
+		header {
+			width: 100%;
+			display: block;
+		}
+		#lap-menu {
+			position: fixed;
+			top: 0;
+			left: 0;
+			padding-top: 15px;
+			width: 100%;
+			transition: all 0.5s ease-in-out;
+			line-height: 0;
+			font-family: 'Ubuntu Condensed';
+		}
+		#lap-menu.active {
+			text-align: center;
+			background-color: #fff;
+			padding: 20px 10px;
+			box-shadow: 0 0 10px #888;
+			transition: all 0.5s ease-in-out;
+		}
+		#lap-menu.active a {
+			color:#333;
+			text-shadow: none;
+		}
+		#lap-menu ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		#lap-menu ul li {
+			display: inline-block;
+		}
+		#lap-menu ul li a {
+			font-style: 1rem;
+			display: block;
+			padding: 15px 10px;
+			text-decoration: none;
+			color: #fff;
+			text-shadow: 0 0 2px #000;
+		}
+		#lap-menu a:hover {
+			color:#ff0;
+			font-weight: bold;
+		}
+		.lka {
+			background-color: #fff;
+			padding: 15px;
+			box-shadow: 5px 5px 5px 5px #ddd;
+		}
+		.bg-white {
+			width: 100%;
+			height: 100%;
+			padding: 50px 15px 0;
+			background-color: rgba(255,255,255,0.1);
+			color:#fff;
+			text-shadow: 0 0 10px #555;
+		}
+		footer {
+			width: 100%;
+			padding: 20px;
+			text-align: center;
+		}
+		.header-aside {
+			border-bottom: 2px solid #004d40;
+			margin: 0 0 20px;
+			padding: 10px 0;
+		}
+		.header-aside span {
+			font-weight: bold;
+			color: #004d40;
+		}
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		table.utama td {
+			padding: 8px;
+		}
+		table.utama tr:first-child td {
+			padding: 10px 8px;
+			background-color: #004d40;
+			border-color: #004d40;
+			color:#fff;
+		}
+		.text-center {
+			text-align: center;
+		}
+		ol {
+			margin-left: 0;
+			padding-left: 18px;
+		}
+		.videos {
+			width: 100% !important;
+			height: auto;
+			margin-bottom: 20px;
+		}
+		.hasil {
+			display: block;
+			width: 100%;
+		}
+		.hasil > div {
+			max-width: 45%;
+			width:100%;
+			margin: 5px;
+			display: inline-table;
+			vertical-align: top;
+			overflow:hidden;
+		}
+		@media screen and (max-width: 980px) {
+			.hasil > div {
+				max-width: 100%;
+				width:100%;
+				margin: 5px;
+				display: block;
+				overflow:hidden;
+			}
+			#menu {
+				display: block;
+				background-color: #fff;
+				padding: 7px 15px;
+				border-bottom: 5px solid #efefef;
+			}
+			#lap-menu, #lap-menu.active {
+				position: static;
+				width: 100%;
+				background-color: #fff;
+				padding: 0;
+				height: 0;
+				overflow: hidden;
+				transition: all 0.5s ease-in-out;
+
+			}
+			#lap-menu.active-mobi {
+				height: 100%;
+				transition: all 0.5s ease-in-out;
+			}
+			#lap-menu ul li{
+				display: block;
+				text-align: center;
+			}
+			#lap-menu ul li a {
+				text-shadow: none;
+				text-align: right;
+				padding-top:20px;
+				padding-right: 30px;
+				color:#333;
+			}
+			.container .left,
+			.container .right {
+				max-width: 100%;
+				width: 100%;
+				background-color: #fff;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="header">
+		<header>
+			<img src="img/back2.png" style="width: 100%;">
+		</header>
+		<div class="mini-btn">
+			<a href="#menu-list" id="menu">
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+			</a>
+		</div>
+		<div id="lap-menu">
+			<ul>
+				<li><a href="#beranda" class="item-menu">Beranda</a></li>
+				<li><a href="#peta" class="item-menu">Peta Desa</a></li>
+				<li><a href="#geografis" class="item-menu">Geografis Desa</a></li>
+				<li><a href="#fisik" class="item-menu">Fisik Desa</a></li>
+				<li><a href="#ekonomi" class="item-menu">Ekonomi Desa</a></li>
+				<li><a href="#demografi" class="item-menu">Demograsi Desa</a></li>
+				<li><a href="#sosbud" class="item-menu">Sosial Budaya</a></li>
+				<li><a href="#sarana-prasarana" class="item-menu">Sarana Prasarana</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="container">
+		<div class="left">
+			<div class="konten" id="beranda">
+				<h1>
+					SEJARAH
+				</h1>
+				<p>
+					Desa Balong sebelumnya adalah Desa Garganta yang dimekarkan pada tahun 1987, dimana kepada desa persiapan pada saat itu adalah ALIMUDDIN. DM yang menjabat pada tahun 1989, dan pada tahun 1989 dilaksanakan pemilihan Kepala Desa dengan status defenitif yang terpilih menjadi Kepada Desa Balong 1 (pertama) adalah ALIMUDDIN. DM sampai pada tahun 2007.
+				</p>
+				<p>
+					Selanjutnya, perkembangan lembaga dan sejarah Desa Balong adalah sebagai berikut :
+					<div class="table">
+						<table border="1" class="utama">
+							<tr>
+								<td>TAHUN</td>
+								<td>KEJADIAN YANG BAIK</td>
+								<td>KEJADIAN BURUK</td>
+							</tr>
+							<tr>
+								<td>1987 - 1988</td>
+								<td>Pejabat sementara</td>
+								<td>-</td>
+							</tr>
+							<tr>
+								<td>1988</td>
+								<td>Pemilihan Kepala Desa pertama terpilih kembali adalah ALIMUDDIN. DM</td>
+								<td>-</td>
+							</tr>
+							<tr>
+								<td>1999</td>
+								<td>Pemilihan Kepala Desa Kedua terpilih kembali adalah ALIMUDDIN. DM</td>
+								<td>-</td>
+							</tr>
+							<tr>
+								<td>2007</td>
+								<td>Pemilihan Kepada Desa Ketiga yang terpilih adalah SYAFRI, S.Sos</td>
+								<td>Terjadinya persaingan politik masing-masing kubu karena pada saat itu politik mencapai puncaknya pada tahun 2007 - 2008 waktu peristiwa reformasi.</td>
+							</tr>
+							<tr>
+								<td>2014</td>
+								<td>Pemilihan Kepada Desa Keempat yang terpilih adalah SYAFRI, S.Sos</td>
+								<td>Terjadinya persaingan politik masing-masing kubu karena pada saat itu politik mencapai puncaknya pada tahun 2014 - 2020 waktu peristiwa reformasi.</td>
+							</tr>
+						</table>
+					</div>
+				</p>
+			</div>
+			<div class="konten" id="peta">
+				<h1>PETA DESA</h1>
+				<p>
+					<fieldset>
+						<legend><h3>Peta Orientasi</h3></legend>
+						<a target="_blank" href="img/peta-ori.png">
+							<img src="img/peta-ori.png" style="width: 100%;" />
+						</a>
+					</fieldset>
+					<fieldset>
+						<legend><h3>Peta Citra</h3></legend>
+						<a target="_blank" href="img/peta-cit.png">
+							<img src="img/peta-cit.png" style="width: 100%;" />
+						</a>
+					</fieldset>
+					<fieldset>
+						<legend><h3>Peta Penduduk</h3></legend>
+						<a target="_blank" href="img/peta-pen.png">
+							<img src="img/peta-pen.png" style="width: 100%;" />
+						</a>
+					</fieldset>
+					<fieldset>
+						<legend><h3>Peta Sebaran Infrastruktur</h3></legend>
+						<a target="_blank" href="img/peta-seb.png">
+							<img src="img/peta-seb.png" style="width: 100%;" />
+						</a>
+					</fieldset>
+					<fieldset>
+						<legend><h3>Peta Jaringan Jalan</h3></legend>
+						<a target="_blank" href="img/peta-jar.png">
+							<img src="img/peta-jar.png" style="width: 100%;" />
+						</a>
+					</fieldset>
+					<fieldset>
+						<legend><h3>Peta Penggunaan Lahan</h3></legend>
+						<a target="_blank" href="img/peta-jal.png">
+							<img src="img/peta-jal.png" style="width: 100%;" />
+						</a>
+					</fieldset>
+				</p>
+			</div>
+			<div class="konten" id="geografis">
+				<h1>KONDISI GEOGRAFIS DAN ADMINISTRATIF DESA</h1>
+				<h3>Kondisi Geografis</h3>
+				<b>Letak Desa</b><br />
+				<p>
+					Desa Balong merupakan salah satu desa dari 12 desa 1 kelurahan di wilayah Kecamatan Ujung Loe yang terletak 7 km dari Kecamatan Ujung Loe, dengan :
+					<ol type="a">
+						<li>Kode Desa/Kelurahan 7302092004</li>
+						<li>Luas wilayah 10217 Hektar</li>
+						<li>Koordinat bujur 120.264547</li>
+						<li>Koordinat lintang -5.47583</li>
+						<li>Ketinggian diatas permukaan laut 250 meter</li>
+					</ol>
+				</p>
+				<h3>Administrasi Desa Balong</h3>
+				<p>
+					Secara administrasi, Desa Balong termasuk dalam wilayah Kecamatan Ujung Loe, Kabupaten Bulukumba, Provinsi Sulawesi Selatan. Desa ini terdiri dari 5 dusun, yaitu :
+					<ol type="1">
+						<li>Dusun Bontoloe</li>
+						<li>Dusun Patukku</li>
+						<li>Dusun Pabbentengan</li>
+						<li>Dusun Kalicompeng</li>
+						<li>Dusun Longki</li>
+					</ol>
+				</p>
+				<!-- &#10070;&nbsp; -->
+			</div>
+			<div class="konten" id="fisik">
+				<h1>KONDISI FISIK WILAYAH DESA</h1>
+				<b>&#10070;&nbsp;Topografi Desa</b><br />
+				<p>
+					Desa Balong memiliki kondisi daerah yang lebih banyak terdiri atas daratan kurang lebih 2.000.000 Ha dan berada diatas ketinggian kurang lebih 250 meter dari permukaan air laut. Kondisi tanah di Desa Lonrong cukup subur untuk ditanami berbagai jenis tanaman baik tanaman holtikultura maupun tanaman jangka panjang. Potensi pengairan di Desa Balong cukup bagus sehingga daerah ini dianggap sangat cocok untuk persawahan dan perkebunan, serta dapat memberikan kontribusi pengairan untuk desa dan kelurahan lain yang berada di sekitar Desa Balong, bahkan lintas kecamatan.
+				</p>
+				<b>&#10070;&nbsp;Kondisi Geologi</b><br />
+				<p>
+					Secara umum, Desa Balong tersusun oleh batuan beku lelehan (Basal) dan batuan gamping yang merupakan bagian dari formasi batuan Walanae.
+				</p>
+				<b>&#10070;&nbsp;Kondisi Klimatologi</b><br />
+				<p>
+					Desa Balong memiliki iklim tropis dengan suhu udara rata-rata 24 <sup>o</sup>C dengan curah hujan yang cukup tinggi serta memiliki 3 tipe musim yaitu musim kemarau, musim hujan, dan pancaroba. Musim hujan di wilayah ini biasanya terjadi pada bulan November sampai Februari dan musim kemarau terjadi pada bulan Juni sampai Oktober, sedangkan musin pancaroba terjadi pada musim Maret sampai Mei.
+				</p>
+				<b>&#10070;&nbsp;Kondisi Hidrologi</b><br />
+				<p>
+					Desa Balong dialiri oleh air dari Sungai Balantien yang mengaliri beberapa desa yang juga diantaranya yaitu Desa Balong itu sendiri.
+				</p>
+			</div>
+			<div class="konten" id="ekonomi">
+				<h1>KONDISI EKONOMI DESA</h1>
+				<b>Pertanian dan Perkebunan</b>
+				<p>
+					<div class="hasil">
+						<div class="text-center">
+							<a target="_blank" href="img/padi.png">
+								<img src="img/padi.png" style="width: 100%;" />
+							</a>
+							<div>(Padi)</div>
+						</div>
+						<div class="text-center">
+							<a target="_blank" href="img/jagung.png">
+								<img src="img/jagung.png" style="width: 100%;" />
+							</a>
+							<div>(Jagung)</div>
+						</div>
+						<div class="text-center">
+							<a target="_blank" href="img/kepala.png">
+								<img src="img/kelapa.png" style="width: 95%;margin-top: 1.5%;" />
+							</a>
+							<div>(Kelapa)</div>
+						</div>
+						<div class="text-center">
+							<a target="_blank" href="img/kakao.png">
+								<img src="img/kakao.png" style="width: 100%;" />
+							</a>
+							<div>(Kakao)</div>
+						</div>
+					</div>
+				</p>
+				<b>Peternakan</b>
+				<p>
+					<div class="hasil">
+						<div class="text-center">
+							<a target="_blank" href="img/kuda.png">
+								<img src="img/kuda.png" style="width: 100%;" />
+							</a>
+							<div>(Kuda)</div>
+						</div>
+						<div class="text-center">
+							<a target="_blank" href="img/kambing.png">
+								<img src="img/kambing.png" style="width: 98%;" />
+							</a>
+							<div>(Kambing)</div>
+						</div>
+						<div class="text-center">
+							<a target="_blank" href="img/sapi.png">
+								<img src="img/sapi.png" style="width: 100%;" />
+							</a>
+							<div>(Sapi)</div>
+						</div>
+					</div>
+				</p>
+			</div>
+			<div class="konten" id="demografi">
+				<h1>KONDISI DEMOGRAFI DESA</h1>
+				<div class="table">
+					<table border="1" class="utama">
+						<tr>
+							<td style="text-align:center;">No. </td>
+							<td>Uraian Sumber Daya Manusia (SDM)</td>
+							<td>Jumlah</td>
+							<td>Satuan</td>
+						</tr>
+						<tr>
+							<td rowspan="5" style="text-align:center;">1</td>
+							<td>Penduduk dan Keluarga</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>a. Jumlah Penduduk Laki-laki</td>
+							<td>1.914</td>
+							<td>Orang</td>
+						</tr>
+						<tr>
+							<td>b. Jumlah Penduduk Perempuan</td>
+							<td>1.894</td>
+							<td>Orang</td>
+						</tr>
+						<tr>
+							<td>c. Jumlah Keluarga</td>
+							<td>1.030</td>
+							<td>Orang</td>
+						</tr>
+						<tr>
+							<td>d. Kepadatan Penduduk</td>
+							<td>37</td>
+							<td>Jiwa/Km<sup>2</sup></td>
+						</tr>
+						<tr>
+							<td rowspan="15" style="text-align:center;">2</td>
+							<td>Sumber penghasilan utama penduduk</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>a. Pertanian, Perikanan, dan Perkebunan</td>
+							<td>385</td>
+							<td>Orang</td>
+						</tr>
+						<tr>
+							<td>b. Pertambangan dan Penggalian</td>
+							<td>2</td>
+							<td>Orang</td>
+						</tr>
+						<tr>
+							<td>c. Wiraswasta</td>
+							<td>53</td>
+							<td>Orang</td>
+						</tr>
+						<tr>
+							<td>d. Karyawan perusahaan swaswa</td>
+							<td>8</td>
+							<td>Orang</td>
+						</tr>
+						<tr>
+							<td>e. Angkutan, Pergudangan, dan Komunikasi</td>
+							<td>5</td>
+							<td>Orang</td>
+						</tr>
+						<tr>
+							<td>f. Pelajar</td>
+							<td>179</td>
+							<td>Orang</td>
+						</tr>
+						<tr>
+							<td>g. Buruh Tani</td>
+							<td>114</td>
+							<td>Orang</td>
+						</tr>
+						<tr>
+							<td>h. Pegawai Negeri Sipil</td>
+							<td>14</td>
+							<td>Orang</td>
+						</tr>
+						<tr>
+							<td>i. Tentara</td>
+							<td>9</td>
+							<td>Orang</td>
+						</tr>
+						<tr>
+							<td>j. Polisi</td>
+							<td>6</td>
+							<td>Orang</td>
+						</tr>
+						<tr>
+							<td>k. Belum Bekerja</td>
+							<td>139</td>
+							<td>Orang</td>
+						</tr>
+						<tr>
+							<td>l. Petani</td>
+							<td>385</td>
+							<td>Orang</td>
+						</tr>
+						<tr>
+							<td>m. Tukang batu</td>
+							<td>5</td>
+							<td>Orang</td>
+						</tr>
+						<tr>
+							<td>n. Notaris</td>
+							<td>1</td>
+							<td>Orang</td>
+						</tr>
+
+					</table>
+				</div>
+				
+			</div>
+			<div class="konten" id="sosbud">
+				<h1>KONDISI SOSIAL BUDAYA</h1>
+				<h3>Kearifan Lokal</h3>
+				<div class="table">
+					<table border="1" class="utama">
+						<tr>
+							<td class="text-center">No. </td>
+							<td class="text-center">Kearifan Lokal</td>
+							<td class="text-center">Deskripsi</td>
+						</tr>
+						<tr>
+							<td class="text-center">1</td>
+							<td>
+								Rangkaian acara nikahan
+								<ul style="margin:0;padding: 0;padding-left: 18px;">
+									<li>Mangada</li>
+									<li>Mapancing</li>
+									<li>Mappatamma</li>
+								</ul>
+							</td>
+							<td>
+								<ul style="margin:0;padding: 0;padding-left: 18px;">
+									<li>Tradisi menghadirkan pemerintahan setempat untuk menjemput pihak laki-laki.</li>
+									<li>Menghadirkan semua anggota keluarga untuk membersihkan diri dengan memberikan 7 macam bedak, menabur beras ke pengantin lalu menyirami air dengan daun sirih ke gadis-gadis dan juga janda yang hadir di acara tersebut.</li>
+									<li>Proses menyelesaikan pembacaan Al-Quran.</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td class="text-center">2</td>
+							<td>Barazanji</td>
+							<td>Suatu tradisi sebagai bentuk rasa syukur</td>
+						</tr>
+						<tr>
+							<td class="text-center">3</td>
+							<td>Andingingi</td>
+							<td>Tradisi sebelum memasuki rumah baru</td>
+						</tr>
+						<tr>
+							<td class="text-center">4</td>
+							<td>Bakupuli Kandreana</td>
+							<td>Tradisi dalam pengantin laki-laki untuk membawa sokko dan kue merah ke pihak perempuan.</td>
+						</tr>
+					</table><br />
+					<div class="hasil">
+						<div>
+							<a target="_blank" href="img/sosbub2.png">
+								<img src="img/sosbud2.png" style="width: 100%" />
+							</a>
+						</div>
+						<div>
+							<a target="_blank" href="img/sosbub3.png">			
+								<img src="img/sosbud3.png" style="width: 100%" />
+							</a>
+						</div>
+						<div>
+							<a target="_blank" href="img/sosbub1.png">
+								<img src="img/sosbud1.png" style="width: 100%" />
+							</a>
+						</div>
+					</div>
+				</div>
+				<br />
+				<h3>Kreatifitas Lokal</h3>
+				<p>
+					Sebuah desa yang sangat aktif dan kreatif hampir di segala bagian, contohnya saja pemanfaatan limbah plastik menjadi suatu kerajinan yang sangat indah dan dapat menjadi nilai jual pada desa ini.
+				</p>
+				<div class="hasil">
+					<div>
+						<a target="_blank" href="img/arlok1.png">
+							<img src="img/arlok1.png" style="width: 100%" />
+						</a>
+					</div>
+					<div>
+						<a target="_blank" href="img/arlok2.png">
+							<img src="img/arlok2.png" style="width: 100%" />
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="konten" id="sarana-prasarana">
+				<h1>SARANA PRASARANA DESA</h1>
+				<h3>Data Prasarana Desa</h3>
+				<b>Kondisi Jalan</b><br />
+				<p>
+					Sarana transportasi yakni jalan desa tergolong sangat memadai karena jalanannya juga telah diaspal.
+					<div class="text-center">
+						<a target="_blank" href="img/jalan.png">
+							<img src="img/jalan.png" style="max-width: 400px;width: 100%;" />
+						</a>
+						<div>(Kondisi Jalan)</div>
+					</div>
+				</p>
+				<b>Kondisi Drainase</b><br />
+				<p>
+					Drainase di Desa Balong berada di sepanjang pinggiran jalan yang ada di desa. Kondisinya terbilang baik.
+					<div class="text-center">
+						<a target="_blank" href="img/drainase.png">
+							<img src="img/drainase.png" style="max-width: 400px;width: 100%;" />
+						</a>
+						<div>(Kondisi Drainase)</div>
+					</div>
+				</p>
+				<b>Kondisi Air Bersih</b><br />
+				<p>
+					Pada umumnya, masyarakat Desa Balong memiliki air yang dapat dikatakan telah termasuk golongan yang baik, sumber airnya ada yang berasal dari hasil sumur gali, dan air sungai (Sungai Balantien) yang kerap juga digunakan oleh masyarakat setempat.
+					<div class="text-center">
+						<a target="_blank" href="img/air-bersih.png">
+							<img src="img/air-bersih.png" style="max-width: 400px;width: 100%;" />
+						</a>
+						<div>(Kondisi Air Bersih)</div>
+					</div>
+				</p>
+				<b>Kondisi Kelistrikan</b><br />
+				<p>
+					Kondisi kelistrikan di Desa Balong bisa terbilang baik dengan semua rumah yang telah teraliri listrik. Hanya saja lampu jalan yang telah dipasang di beberapa titik di desa ini kini tidak berfungsi lagi, karena tidak mendapat perhatian dari pemerintah desa setempat.
+					<div class="text-center">
+						<a target="_blank" href="img/listrik.png">
+							<img src="img/listrik.png" style="max-width: 400px;width: 100%;" />
+						</a>
+						<div>(Kondisi Kelistrikan)</div>
+					</div>
+				</p><br />
+				<h3>Data Sarana Desa</h3>
+				<b>Sarana Pemerintahan</b><br />
+				<p>
+					Gedung yang berkenaan dengan segala urusan pemerintahan dan sosial secara terstruktur seperti kantor desa, aula desa, dll. Di Desa Balong, kantor desa dan aula desa bertempat dalam satu kawasan. Untuk pusat pemerintahan desa terletak di Dusun Bontoloe.
+					<div class="hasil text-center">
+						<div>
+							<a target="_blank" href="img/kantor1.png">
+								<img src="img/kantor1.png" style="width: 100%" />
+							</a>
+							<div>(Kantor Desa)</div>
+						</div>
+						<div>
+							<a target="_blank" href="img/aula.png">			
+								<img src="img/aula.png" style="width: 100%" />
+							</a>
+							<div>(Aula Desa)</div>
+						</div>
+					</div>
+				</p>
+				<b>Sarana Transportasi</b><br />
+				<p>
+					Ambulance dan juga bentor disediakan oleh desa guna untuk menunjang kebutuhan masyarakat dalam bidang transportasi apabila diperlukan.
+					<div class="text-center">
+						<a target="_blank" href="img/transport.png">
+							<img src="img/transport.png" style="max-width: 400px;width: 100%;" />
+						</a>
+						<div>(Sarana Transportasi)</div>
+					</div>
+				</p>
+				<b>Sarana Pendidikan</b><br />
+				<p>
+					<ol type="1">
+						<li>TK (2 Gedung)</li>
+						<li>Sekolah Dasar
+							<ul type="dash" style="padding-left: calc(18px);">
+								<li>SD Negeri 295 Balong</li>
+								<li>SD Negeri 223 Garanta</li>
+							</ul>
+						</li>
+					</ol>
+					<div class="hasil text-center">
+						<div>
+							<a target="_blank" href="img/sekolah1.png">
+								<img src="img/sekolah1.png" style="width: 100%" />
+							</a>
+							<div>(SDN 223 Garanta)</div>
+						</div>
+						<div>
+							<a target="_blank" href="img/sekolah2.png">			
+								<img src="img/sekolah2.png" style="width: 100%" />
+							</a>
+							<div>(SDN 295 Balong)</div>
+						</div>
+					</div>
+				</p>
+				<b>Sarana Kesehatan</b><br />
+				<p>
+					Pada Desa Balong terdapat 1 Postu dan juga 5 Posyandu. Dimana Postu ini terletak pada Dusun Longki dengan bangunan yang sudah permanen. Berbeda dengan 4 Posyandu yang terdapat di semua dusun namun bukanlah bangunan permanen. Pada Dusun Bontoloe pada awalnya terdapat bangunan permanen, hanya saja ditutup karena setelah 5 tahun operasionalnya pada pegawai tidak digaji. Jadi untuk sementara Posyandu Dusun Bontoloe tersebut dipindahkan ke rumah Kepala Dusun Bontoloe.
+					<div class="text-center">
+						<a target="_blank" href="img/postu.png">
+							<img src="img/postu.png" style="max-width: 400px;width: 100%;" />
+						</a>
+						<div>(Sarana Kesehatan)</div>
+					</div>
+				</p>
+				<b>Sarana Peribadatan</b><br />
+				<p>
+					Secara keseluruhan Desa Bolong memeluk agama Islam, sehingga untuk memfasilitasi kegiatan atau urusan keagamaan di desa ini, Masjid dibangun merata. Jumlah masjid di Desa Balong berjumlah 16 masjid.
+					<div class="text-center">
+						<a target="_blank" href="img/masjid.png">
+							<img src="img/masjid.png" style="max-width: 400px;width: 100%;" />
+						</a>
+						<div>(Sarana Peribadatan)</div>
+					</div>
+				</p>
+			</div>
+			
+		</div>
+		<div class="right">
+			<div class="lka">
+				<div class="header-aside"><span>Profil Desa</span></div>
+				<div>
+					<iframe class="videos" src="https://www.youtube.com/embed/oS04B4OUkXY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</div>
+			<br />
+			<div class="lka">
+				<div class="header-aside"><span>Sekretariat Desa</span></div>
+				<div>
+					<p style="font-size: 0.9rem;">
+						Jl. Poros, Balong, Ujung Loe, Kabupaten Bulukumba<br />
+						Sulawesi Selatan 90661<br />
+						<table style="width: 100%;font-size: 0.9rem;">
+							<tr>
+								<td style="width: 80px;">E-mail</td>
+								<td style="width: 10px;">:</td>
+								<td>desabalong2019@gmail.com</td>
+							</tr>
+							<tr>
+								<td>Website</td>
+								<td>:</td>
+								<td>desabalong.github.io/home/</td>
+							</tr>
+						</table>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<footer>
+			Copyright &copy; 2019. All Right Reserved.
+		</footer>
+	</div>
+	<script type="text/javascript">
+		
+		var url = window.location.pathname;
+		var filename = url.substring(url.lastIndexOf('/')+1);
+
+		if (filename == "index2.html") {
+			window.location.href = "#beranda";
+		}
+
+		var btn = document.getElementById('menu');
+		var menuList = document.getElementById("lap-menu");
+		btn.onclick = function() {
+			if(menuList.classList.contains("active-mobi")) {
+				menuList.classList.remove("active-mobi");
+			}
+			else {
+				menuList.classList.add("active-mobi");
+			}
+		}
+
+		var lala = document.getElementById("lap-menu");
+		(function() {
+			window.onscroll = function() {
+				if(window.pageYOffset >= 200) {
+					lala.classList.add("active")
+				}
+				else {
+					lala.classList.remove("active");
+				}
+			}
+		})();
+	</script>
+</body>
+</html>
